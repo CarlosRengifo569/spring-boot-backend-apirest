@@ -1,18 +1,13 @@
 package com.coffeesoft.springboot.backend.apirest.controllers;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.coffeesoft.springboot.backend.apirest.models.entity.Region;
+import com.coffeesoft.springboot.backend.apirest.models.services.IUploadFileService;
 import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -37,8 +32,8 @@ public class ClienteRestController {
 
 	@Autowired
 	private IClienteService clienteService;
-
-	private final Logger log = LoggerFactory.getLogger(ClienteRestController.class);
+	@Autowired
+	private IUploadFileService uploadFileService;
 
 	@GetMapping("/clientes")
 	public List<Cliente> index() {
@@ -127,6 +122,7 @@ public class ClienteRestController {
 			clienteActual.setApellido(cliente.getApellido());
 			clienteActual.setEmail(cliente.getEmail());
 			clienteActual.setCreateAt(cliente.getCreateAt());
+			clienteActual.setRegion(cliente.getRegion());
 			clienteUpdated = this.clienteService.save(clienteActual);
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al actualizar el cliente en la base de datos");
@@ -145,13 +141,7 @@ public class ClienteRestController {
 		try {
 			Cliente cliente = clienteService.findById(id);
 			String nombreFotoAnterior = cliente.getFoto();
-			if (nombreFotoAnterior != null && nombreFotoAnterior.length() > 0) {
-				Path rutaFotoAnterior = Paths.get("uploads").resolve(nombreFotoAnterior).toAbsolutePath();
-				File archivoFotoAnterior = rutaFotoAnterior.toFile();
-				if(archivoFotoAnterior.exists() && archivoFotoAnterior.canRead()) {
-					archivoFotoAnterior.delete();
-				}
-			}
+			uploadFileService.eliminar(nombreFotoAnterior);
 			this.clienteService.delete(id);
 
 		} catch (DataAccessException e) {
@@ -169,48 +159,39 @@ public class ClienteRestController {
 		Cliente cliente = clienteService.findById(id);
 
 		if(!archivo.isEmpty()) {
-			String nombreArchivo = UUID.randomUUID().toString() +"_"+ archivo.getOriginalFilename().replace(" ", "");
-			Path rutaArchivo = Paths.get("uploads").resolve(nombreArchivo).toAbsolutePath();
-			log.info(rutaArchivo.toString());
+			String nombreArchivo = null;
 			try {
-				Files.copy(archivo.getInputStream(), rutaArchivo);
+				nombreArchivo = uploadFileService.copiar(archivo);
 			} catch (IOException e) {
-				response.put("mensaje", "Error al subir la imagen del cliente" + nombreArchivo);
+				response.put("mensaje", "Error al subir la imagen del cliente");
 				response.put("error", e.getMessage().concat(": ").concat(e.getCause().getMessage()));
 				return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 			}
 			String nombreFotoAnterior = cliente.getFoto();
-			if (nombreFotoAnterior != null && nombreFotoAnterior.length() > 0) {
-				Path rutaFotoAnterior = Paths.get("uploads").resolve(nombreFotoAnterior).toAbsolutePath();
-				File archivoFotoAnterior = rutaFotoAnterior.toFile();
-				if(archivoFotoAnterior.exists() && archivoFotoAnterior.canRead()) {
-					archivoFotoAnterior.delete();
-				}
-			}
+			uploadFileService.eliminar(nombreFotoAnterior);
 			cliente.setFoto(nombreArchivo);
 			clienteService.save(cliente);
 			response.put("cliente", cliente);
 			response.put("mensaje", "has subido correctamente la imagen: " + nombreArchivo);
 		}
-
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 
 	@GetMapping("/uploads/img/{nombreFoto:.+}")
 	public ResponseEntity<Resource> verFoto(@PathVariable String nombreFoto) {
-		Path rutaArchivo = Paths.get("uploads").resolve(nombreFoto).toAbsolutePath();
-		log.info(rutaArchivo.toString());
 		Resource recurso = null;
 		try {
-			recurso = new UrlResource(rutaArchivo.toUri());
+			recurso = uploadFileService.cargar(nombreFoto);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
-		}
-		if(!recurso.exists() && !recurso.isReadable()) {
-			throw new RuntimeException("Error no se pudo cargar la imagen" + nombreFoto);
 		}
 		HttpHeaders cabecera = new HttpHeaders();
 		cabecera.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + recurso.getFilename() + "\"");
 		return new ResponseEntity<Resource>(recurso, HttpStatus.OK);
+	}
+
+	@GetMapping("clientes/regiones")
+	public List<Region> listarRegiones() {
+		return clienteService.findAllRegiones();
 	}
 }
