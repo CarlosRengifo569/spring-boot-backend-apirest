@@ -244,7 +244,7 @@
     </schema>
     <schema id="45" parent="2" name="dbo">
       <ObjectId>1</ObjectId>
-      <IntrospectionTimestamp>2021-09-01.16:16:17.643</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2021-09-06.11:34:39.803</IntrospectionTimestamp>
       <Current>1</Current>
     </schema>
     <schema id="46" parent="2" name="guest">
@@ -332,266 +332,417 @@
       <AuthType>none</AuthType>
     </role>
     <table id="62" parent="45" name="clientes">
-      <ObjectId>795149878</ObjectId>
-      <CreatedTimestamp>2021-09-01.16:13:16.740</CreatedTimestamp>
-      <ModifiedTimestamp>2021-09-01.16:13:16.760</ModifiedTimestamp>
+      <ObjectId>580197117</ObjectId>
+      <CreatedTimestamp>2021-09-06.11:34:29.747</CreatedTimestamp>
+      <ModifiedTimestamp>2021-09-06.11:34:29.777</ModifiedTimestamp>
     </table>
-    <table id="63" parent="45" name="regiones">
-      <ObjectId>827149992</ObjectId>
-      <CreatedTimestamp>2021-09-01.16:13:16.740</CreatedTimestamp>
-      <ModifiedTimestamp>2021-09-01.16:13:16.760</ModifiedTimestamp>
+    <table id="63" parent="45" name="facturas">
+      <ObjectId>612197231</ObjectId>
+      <CreatedTimestamp>2021-09-06.11:34:29.750</CreatedTimestamp>
+      <ModifiedTimestamp>2021-09-06.11:34:29.777</ModifiedTimestamp>
     </table>
-    <table id="64" parent="45" name="roles">
-      <ObjectId>859150106</ObjectId>
-      <CreatedTimestamp>2021-09-01.16:13:16.743</CreatedTimestamp>
-      <ModifiedTimestamp>2021-09-01.16:13:16.760</ModifiedTimestamp>
+    <table id="64" parent="45" name="facturas_items">
+      <ObjectId>644197345</ObjectId>
+      <CreatedTimestamp>2021-09-06.11:34:29.750</CreatedTimestamp>
+      <ModifiedTimestamp>2021-09-06.11:34:29.780</ModifiedTimestamp>
     </table>
-    <table id="65" parent="45" name="usuarios">
-      <ObjectId>891150220</ObjectId>
-      <CreatedTimestamp>2021-09-01.16:13:16.747</CreatedTimestamp>
-      <ModifiedTimestamp>2021-09-01.16:13:16.767</ModifiedTimestamp>
+    <table id="65" parent="45" name="productos">
+      <ObjectId>676197459</ObjectId>
+      <CreatedTimestamp>2021-09-06.11:34:29.753</CreatedTimestamp>
+      <ModifiedTimestamp>2021-09-06.11:34:29.777</ModifiedTimestamp>
     </table>
-    <table id="66" parent="45" name="usuarios_roles">
-      <ObjectId>923150334</ObjectId>
-      <CreatedTimestamp>2021-09-01.16:13:16.747</CreatedTimestamp>
-      <ModifiedTimestamp>2021-09-01.16:13:16.767</ModifiedTimestamp>
+    <table id="66" parent="45" name="regiones">
+      <ObjectId>708197573</ObjectId>
+      <CreatedTimestamp>2021-09-06.11:34:29.753</CreatedTimestamp>
+      <ModifiedTimestamp>2021-09-06.11:34:29.773</ModifiedTimestamp>
     </table>
-    <column id="67" parent="62" name="id">
+    <table id="67" parent="45" name="roles">
+      <ObjectId>740197687</ObjectId>
+      <CreatedTimestamp>2021-09-06.11:34:29.757</CreatedTimestamp>
+      <ModifiedTimestamp>2021-09-06.11:34:29.780</ModifiedTimestamp>
+    </table>
+    <table id="68" parent="45" name="usuarios">
+      <ObjectId>772197801</ObjectId>
+      <CreatedTimestamp>2021-09-06.11:34:29.760</CreatedTimestamp>
+      <ModifiedTimestamp>2021-09-06.11:34:29.780</ModifiedTimestamp>
+    </table>
+    <table id="69" parent="45" name="usuarios_roles">
+      <ObjectId>804197915</ObjectId>
+      <CreatedTimestamp>2021-09-06.11:34:29.760</CreatedTimestamp>
+      <ModifiedTimestamp>2021-09-06.11:34:29.783</ModifiedTimestamp>
+    </table>
+    <column id="70" parent="62" name="id">
       <Position>1</Position>
       <SequenceIdentity>1(13)</SequenceIdentity>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="68" parent="62" name="apellido">
+    <column id="71" parent="62" name="apellido">
       <Position>2</Position>
       <DataType>varchar(255 char)|0s</DataType>
     </column>
-    <column id="69" parent="62" name="create_at">
+    <column id="72" parent="62" name="create_at">
       <Position>3</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="70" parent="62" name="email">
+    <column id="73" parent="62" name="email">
       <Position>4</Position>
       <DataType>varchar(255 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="71" parent="62" name="foto">
+    <column id="74" parent="62" name="foto">
       <Position>5</Position>
       <DataType>varchar(255 char)|0s</DataType>
     </column>
-    <column id="72" parent="62" name="nombre">
+    <column id="75" parent="62" name="nombre">
       <Position>6</Position>
       <DataType>varchar(12 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="73" parent="62" name="region_id">
+    <column id="76" parent="62" name="region_id">
       <Position>7</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="74" parent="62" name="PK__clientes__3213E83F8897EA25">
+    <index id="77" parent="62" name="PK__clientes__3213E83FBC688917">
       <Position>1</Position>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <key id="75" parent="62" name="PK__clientes__3213E83F8897EA25">
-      <ObjectId>811149935</ObjectId>
+    <key id="78" parent="62" name="PK__clientes__3213E83FBC688917">
+      <ObjectId>596197174</ObjectId>
       <NameSurrogate>1</NameSurrogate>
-      <CreatedTimestamp>2021-09-01.16:13:16.740</CreatedTimestamp>
-      <ModifiedTimestamp>2021-09-01.16:13:16.740</ModifiedTimestamp>
+      <CreatedTimestamp>2021-09-06.11:34:29.747</CreatedTimestamp>
+      <ModifiedTimestamp>2021-09-06.11:34:29.747</ModifiedTimestamp>
       <ColNames>id</ColNames>
-      <UnderlyingIndexName>PK__clientes__3213E83F8897EA25</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__clientes__3213E83FBC688917</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="76" parent="62" name="FKf1kwxd4whuje3nv9yxddld4c3">
-      <ObjectId>1003150619</ObjectId>
-      <CreatedTimestamp>2021-09-01.16:13:16.760</CreatedTimestamp>
-      <ModifiedTimestamp>2021-09-01.16:13:16.760</ModifiedTimestamp>
+    <foreign-key id="79" parent="62" name="FKf1kwxd4whuje3nv9yxddld4c3">
+      <ObjectId>884198200</ObjectId>
+      <CreatedTimestamp>2021-09-06.11:34:29.773</CreatedTimestamp>
+      <ModifiedTimestamp>2021-09-06.11:34:29.773</ModifiedTimestamp>
       <ColNames>region_id</ColNames>
-      <RefTableId>827149992</RefTableId>
+      <RefTableId>708197573</RefTableId>
       <RefTableName>regiones</RefTableName>
-      <RefKeyName>PK__regiones__3213E83FC37D6110</RefKeyName>
+      <RefKeyName>PK__regiones__3213E83F80DD6FFD</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="77" parent="63" name="id">
+    <column id="80" parent="63" name="id">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="81" parent="63" name="create_at">
+      <Position>2</Position>
+      <DataType>date|0s</DataType>
+    </column>
+    <column id="82" parent="63" name="descripcion">
+      <Position>3</Position>
+      <DataType>varchar(255 char)|0s</DataType>
+    </column>
+    <column id="83" parent="63" name="observacion">
+      <Position>4</Position>
+      <DataType>varchar(255 char)|0s</DataType>
+    </column>
+    <column id="84" parent="63" name="cliente_id">
+      <Position>5</Position>
+      <DataType>bigint|0s</DataType>
+    </column>
+    <index id="85" parent="63" name="PK__facturas__3213E83F18804D94">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="86" parent="63" name="PK__facturas__3213E83F18804D94">
+      <ObjectId>628197288</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2021-09-06.11:34:29.750</CreatedTimestamp>
+      <ModifiedTimestamp>2021-09-06.11:34:29.750</ModifiedTimestamp>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>PK__facturas__3213E83F18804D94</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="87" parent="63" name="FK1qiuk10rfkovhlfpsk7oic0v8">
+      <ObjectId>900198257</ObjectId>
+      <CreatedTimestamp>2021-09-06.11:34:29.773</CreatedTimestamp>
+      <ModifiedTimestamp>2021-09-06.11:34:29.773</ModifiedTimestamp>
+      <ColNames>cliente_id</ColNames>
+      <RefTableId>580197117</RefTableId>
+      <RefTableName>clientes</RefTableName>
+      <RefKeyName>PK__clientes__3213E83FBC688917</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="88" parent="64" name="id">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="89" parent="64" name="cantidad">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="90" parent="64" name="producto_id">
+      <Position>3</Position>
+      <DataType>bigint|0s</DataType>
+    </column>
+    <column id="91" parent="64" name="factura_id">
+      <Position>4</Position>
+      <DataType>bigint|0s</DataType>
+    </column>
+    <index id="92" parent="64" name="PK__facturas__3213E83F957B3CA8">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="93" parent="64" name="PK__facturas__3213E83F957B3CA8">
+      <ObjectId>660197402</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2021-09-06.11:34:29.750</CreatedTimestamp>
+      <ModifiedTimestamp>2021-09-06.11:34:29.750</ModifiedTimestamp>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>PK__facturas__3213E83F957B3CA8</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="94" parent="64" name="FKdumnm9x14hjfp9fufn7q8389r">
+      <ObjectId>916198314</ObjectId>
+      <CreatedTimestamp>2021-09-06.11:34:29.777</CreatedTimestamp>
+      <ModifiedTimestamp>2021-09-06.11:34:29.777</ModifiedTimestamp>
+      <ColNames>producto_id</ColNames>
+      <RefTableId>676197459</RefTableId>
+      <RefTableName>productos</RefTableName>
+      <RefKeyName>PK__producto__3213E83FE26E8417</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="95" parent="64" name="FKnv8ijya20df661b0p6drqcx7u">
+      <ObjectId>932198371</ObjectId>
+      <CreatedTimestamp>2021-09-06.11:34:29.777</CreatedTimestamp>
+      <ModifiedTimestamp>2021-09-06.11:34:29.777</ModifiedTimestamp>
+      <ColNames>factura_id</ColNames>
+      <RefTableId>612197231</RefTableId>
+      <RefTableName>facturas</RefTableName>
+      <RefKeyName>PK__facturas__3213E83F18804D94</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="96" parent="65" name="id">
+      <Position>1</Position>
+      <SequenceIdentity>1(8)</SequenceIdentity>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="97" parent="65" name="create_at">
+      <Position>2</Position>
+      <DataType>date|0s</DataType>
+    </column>
+    <column id="98" parent="65" name="nombre">
+      <Position>3</Position>
+      <DataType>varchar(255 char)|0s</DataType>
+    </column>
+    <column id="99" parent="65" name="precio">
+      <Position>4</Position>
+      <DataType>float|0s</DataType>
+    </column>
+    <index id="100" parent="65" name="PK__producto__3213E83FE26E8417">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="101" parent="65" name="PK__producto__3213E83FE26E8417">
+      <ObjectId>692197516</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2021-09-06.11:34:29.753</CreatedTimestamp>
+      <ModifiedTimestamp>2021-09-06.11:34:29.753</ModifiedTimestamp>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>PK__producto__3213E83FE26E8417</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="102" parent="66" name="id">
       <Position>1</Position>
       <SequenceIdentity>1(9)</SequenceIdentity>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="78" parent="63" name="nombre">
+    <column id="103" parent="66" name="nombre">
       <Position>2</Position>
       <DataType>varchar(255 char)|0s</DataType>
     </column>
-    <index id="79" parent="63" name="PK__regiones__3213E83FC37D6110">
+    <index id="104" parent="66" name="PK__regiones__3213E83F80DD6FFD">
       <Position>1</Position>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <key id="80" parent="63" name="PK__regiones__3213E83FC37D6110">
-      <ObjectId>843150049</ObjectId>
+    <key id="105" parent="66" name="PK__regiones__3213E83F80DD6FFD">
+      <ObjectId>724197630</ObjectId>
       <NameSurrogate>1</NameSurrogate>
-      <CreatedTimestamp>2021-09-01.16:13:16.740</CreatedTimestamp>
-      <ModifiedTimestamp>2021-09-01.16:13:16.740</ModifiedTimestamp>
+      <CreatedTimestamp>2021-09-06.11:34:29.757</CreatedTimestamp>
+      <ModifiedTimestamp>2021-09-06.11:34:29.757</ModifiedTimestamp>
       <ColNames>id</ColNames>
-      <UnderlyingIndexName>PK__regiones__3213E83FC37D6110</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__regiones__3213E83F80DD6FFD</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="81" parent="64" name="id">
+    <column id="106" parent="67" name="id">
       <Position>1</Position>
       <SequenceIdentity>1(3)</SequenceIdentity>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="82" parent="64" name="nombre">
+    <column id="107" parent="67" name="nombre">
       <Position>2</Position>
       <DataType>varchar(20 char)|0s</DataType>
     </column>
-    <index id="83" parent="64" name="PK__roles__3213E83F69EAE99A">
+    <index id="108" parent="67" name="PK__roles__3213E83FA8CFD74F">
       <Position>1</Position>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <index id="84" parent="64" name="UK_ldv0v52e0udsh2h1rs0r0gw1n">
+    <index id="109" parent="67" name="UK_ldv0v52e0udsh2h1rs0r0gw1n">
       <Position>2</Position>
       <ColNames>nombre</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="85" parent="64" name="PK__roles__3213E83F69EAE99A">
-      <ObjectId>875150163</ObjectId>
+    <key id="110" parent="67" name="PK__roles__3213E83FA8CFD74F">
+      <ObjectId>756197744</ObjectId>
       <NameSurrogate>1</NameSurrogate>
-      <CreatedTimestamp>2021-09-01.16:13:16.743</CreatedTimestamp>
-      <ModifiedTimestamp>2021-09-01.16:13:16.743</ModifiedTimestamp>
+      <CreatedTimestamp>2021-09-06.11:34:29.757</CreatedTimestamp>
+      <ModifiedTimestamp>2021-09-06.11:34:29.757</ModifiedTimestamp>
       <ColNames>id</ColNames>
-      <UnderlyingIndexName>PK__roles__3213E83F69EAE99A</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__roles__3213E83FA8CFD74F</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <key id="86" parent="64" name="UK_ldv0v52e0udsh2h1rs0r0gw1n">
-      <ObjectId>939150391</ObjectId>
-      <CreatedTimestamp>2021-09-01.16:13:16.750</CreatedTimestamp>
-      <ModifiedTimestamp>2021-09-01.16:13:16.750</ModifiedTimestamp>
+    <key id="111" parent="67" name="UK_ldv0v52e0udsh2h1rs0r0gw1n">
+      <ObjectId>820197972</ObjectId>
+      <CreatedTimestamp>2021-09-06.11:34:29.763</CreatedTimestamp>
+      <ModifiedTimestamp>2021-09-06.11:34:29.763</ModifiedTimestamp>
       <ColNames>nombre</ColNames>
       <UnderlyingIndexName>UK_ldv0v52e0udsh2h1rs0r0gw1n</UnderlyingIndexName>
     </key>
-    <column id="87" parent="65" name="id">
+    <column id="112" parent="68" name="id">
       <Position>1</Position>
       <SequenceIdentity>1(3)</SequenceIdentity>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="88" parent="65" name="apellido">
+    <column id="113" parent="68" name="apellido">
       <Position>2</Position>
       <DataType>varchar(255 char)|0s</DataType>
     </column>
-    <column id="89" parent="65" name="email">
+    <column id="114" parent="68" name="email">
       <Position>3</Position>
       <DataType>varchar(255 char)|0s</DataType>
     </column>
-    <column id="90" parent="65" name="enabled">
+    <column id="115" parent="68" name="enabled">
       <Position>4</Position>
       <DataType>bit|0s</DataType>
     </column>
-    <column id="91" parent="65" name="nombre">
+    <column id="116" parent="68" name="nombre">
       <Position>5</Position>
       <DataType>varchar(255 char)|0s</DataType>
     </column>
-    <column id="92" parent="65" name="password">
+    <column id="117" parent="68" name="password">
       <Position>6</Position>
       <DataType>varchar(60 char)|0s</DataType>
     </column>
-    <column id="93" parent="65" name="username">
+    <column id="118" parent="68" name="username">
       <Position>7</Position>
       <DataType>varchar(20 char)|0s</DataType>
     </column>
-    <index id="94" parent="65" name="PK__usuarios__3213E83F41596F62">
+    <index id="119" parent="68" name="PK__usuarios__3213E83F06F23312">
       <Position>1</Position>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <index id="95" parent="65" name="UK_kfsp0s1tflm1cwlj8idhqsad0">
+    <index id="120" parent="68" name="UK_kfsp0s1tflm1cwlj8idhqsad0">
       <Position>2</Position>
       <ColNames>email</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="96" parent="65" name="UK_m2dvbwfge291euvmk6vkkocao">
+    <index id="121" parent="68" name="UK_m2dvbwfge291euvmk6vkkocao">
       <Position>3</Position>
       <ColNames>username</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="97" parent="65" name="PK__usuarios__3213E83F41596F62">
-      <ObjectId>907150277</ObjectId>
+    <key id="122" parent="68" name="PK__usuarios__3213E83F06F23312">
+      <ObjectId>788197858</ObjectId>
       <NameSurrogate>1</NameSurrogate>
-      <CreatedTimestamp>2021-09-01.16:13:16.747</CreatedTimestamp>
-      <ModifiedTimestamp>2021-09-01.16:13:16.747</ModifiedTimestamp>
+      <CreatedTimestamp>2021-09-06.11:34:29.760</CreatedTimestamp>
+      <ModifiedTimestamp>2021-09-06.11:34:29.760</ModifiedTimestamp>
       <ColNames>id</ColNames>
-      <UnderlyingIndexName>PK__usuarios__3213E83F41596F62</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__usuarios__3213E83F06F23312</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <key id="98" parent="65" name="UK_kfsp0s1tflm1cwlj8idhqsad0">
-      <ObjectId>955150448</ObjectId>
-      <CreatedTimestamp>2021-09-01.16:13:16.753</CreatedTimestamp>
-      <ModifiedTimestamp>2021-09-01.16:13:16.753</ModifiedTimestamp>
+    <key id="123" parent="68" name="UK_kfsp0s1tflm1cwlj8idhqsad0">
+      <ObjectId>836198029</ObjectId>
+      <CreatedTimestamp>2021-09-06.11:34:29.767</CreatedTimestamp>
+      <ModifiedTimestamp>2021-09-06.11:34:29.767</ModifiedTimestamp>
       <ColNames>email</ColNames>
       <UnderlyingIndexName>UK_kfsp0s1tflm1cwlj8idhqsad0</UnderlyingIndexName>
     </key>
-    <key id="99" parent="65" name="UK_m2dvbwfge291euvmk6vkkocao">
-      <ObjectId>971150505</ObjectId>
-      <CreatedTimestamp>2021-09-01.16:13:16.757</CreatedTimestamp>
-      <ModifiedTimestamp>2021-09-01.16:13:16.757</ModifiedTimestamp>
+    <key id="124" parent="68" name="UK_m2dvbwfge291euvmk6vkkocao">
+      <ObjectId>852198086</ObjectId>
+      <CreatedTimestamp>2021-09-06.11:34:29.770</CreatedTimestamp>
+      <ModifiedTimestamp>2021-09-06.11:34:29.770</ModifiedTimestamp>
       <ColNames>username</ColNames>
       <UnderlyingIndexName>UK_m2dvbwfge291euvmk6vkkocao</UnderlyingIndexName>
     </key>
-    <column id="100" parent="66" name="usuario_id">
+    <column id="125" parent="69" name="usuario_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="101" parent="66" name="role_id">
+    <column id="126" parent="69" name="role_id">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="102" parent="66" name="UKqjaspm7473pnu9y4jxhrds8r2">
+    <index id="127" parent="69" name="UKqjaspm7473pnu9y4jxhrds8r2">
       <Position>2</Position>
       <ColNames>usuario_id
 role_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="103" parent="66" name="UKqjaspm7473pnu9y4jxhrds8r2">
-      <ObjectId>987150562</ObjectId>
-      <CreatedTimestamp>2021-09-01.16:13:16.757</CreatedTimestamp>
-      <ModifiedTimestamp>2021-09-01.16:13:16.757</ModifiedTimestamp>
+    <key id="128" parent="69" name="UKqjaspm7473pnu9y4jxhrds8r2">
+      <ObjectId>868198143</ObjectId>
+      <CreatedTimestamp>2021-09-06.11:34:29.770</CreatedTimestamp>
+      <ModifiedTimestamp>2021-09-06.11:34:29.770</ModifiedTimestamp>
       <ColNames>usuario_id
 role_id</ColNames>
       <UnderlyingIndexName>UKqjaspm7473pnu9y4jxhrds8r2</UnderlyingIndexName>
     </key>
-    <foreign-key id="104" parent="66" name="FKqcxu02bqipxpr7cjyj9dmhwec">
-      <ObjectId>1035150733</ObjectId>
-      <CreatedTimestamp>2021-09-01.16:13:16.763</CreatedTimestamp>
-      <ModifiedTimestamp>2021-09-01.16:13:16.763</ModifiedTimestamp>
+    <foreign-key id="129" parent="69" name="FKqcxu02bqipxpr7cjyj9dmhwec">
+      <ObjectId>964198485</ObjectId>
+      <CreatedTimestamp>2021-09-06.11:34:29.780</CreatedTimestamp>
+      <ModifiedTimestamp>2021-09-06.11:34:29.780</ModifiedTimestamp>
       <ColNames>usuario_id</ColNames>
-      <RefTableId>891150220</RefTableId>
+      <RefTableId>772197801</RefTableId>
       <RefTableName>usuarios</RefTableName>
-      <RefKeyName>PK__usuarios__3213E83F41596F62</RefKeyName>
+      <RefKeyName>PK__usuarios__3213E83F06F23312</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="105" parent="66" name="FKihom0uklpkfpffipxpoyf7b74">
-      <ObjectId>1019150676</ObjectId>
-      <CreatedTimestamp>2021-09-01.16:13:16.760</CreatedTimestamp>
-      <ModifiedTimestamp>2021-09-01.16:13:16.760</ModifiedTimestamp>
+    <foreign-key id="130" parent="69" name="FKihom0uklpkfpffipxpoyf7b74">
+      <ObjectId>948198428</ObjectId>
+      <CreatedTimestamp>2021-09-06.11:34:29.780</CreatedTimestamp>
+      <ModifiedTimestamp>2021-09-06.11:34:29.780</ModifiedTimestamp>
       <ColNames>role_id</ColNames>
-      <RefTableId>859150106</RefTableId>
+      <RefTableId>740197687</RefTableId>
       <RefTableName>roles</RefTableName>
-      <RefKeyName>PK__roles__3213E83F69EAE99A</RefKeyName>
+      <RefKeyName>PK__roles__3213E83FA8CFD74F</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
   </database-model>
